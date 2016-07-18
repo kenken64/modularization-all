@@ -1,0 +1,23 @@
+{
+  "name": "employee",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "Nikhil Bhandari <nikhil.bhandari@intelligrape.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.7",
+    "jquery": "^3.1.0",
+    "bootstrap": "^3.3.6",
+    "font-awesome": "^4.6.3"
+  }
+}
