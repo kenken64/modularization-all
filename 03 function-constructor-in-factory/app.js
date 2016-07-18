@@ -1,13 +1,13 @@
-var Employee = function (firstName, lastName, gender, hireDate, dateOfBirth) {
+var Employee = function (firstName, lastName, gender, hireDate, birthDate) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.gender = gender;
     this.hireDate = hireDate;
-    this.dateOfBirth = dateOfBirth;
+    this.birthDate = birthDate;
 };
 
-var employeeFactory = function (firstName, lastName, gender, hireDate, dateOfBirth) {
-    return new Employee(firstName, lastName, gender, hireDate, dateOfBirth)
+var employeeFactory = function (firstName, lastName, gender, hireDate, birthDate) {
+    return new Employee(firstName, lastName, gender, hireDate, birthDate)
 };
 
 var person1 = employeeFactory("Roni", "Thomas", "M", "2016-05-01", "1980-01-01");

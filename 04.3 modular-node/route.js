@@ -13,7 +13,7 @@ module.exports = function (app) {
             req.body.lastName,
             gender,
             hireDate,
-            dateOfBirth
+            birthDate
         );
 
         employee.save(function (err, result) {
@@ -28,6 +28,6 @@ module.exports = function (app) {
 
     });
 
-    app.get("/bower_components", express.static(__dirname + "/bower_components"));
+    app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 
 };

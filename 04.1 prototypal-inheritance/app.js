@@ -1,9 +1,9 @@
-var Employee = function (firstName, lastName, gender, hireDate, dateOfBirth) {
+var Employee = function (firstName, lastName, gender, hireDate, birthDate) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.gender = gender;
     this.hireDate = hireDate;
-    this.dateOfBirth = dateOfBirth;
+    this.birthDate = birthDate;
 };
 
 Employee.prototype.save = function () {

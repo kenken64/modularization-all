@@ -1,10 +1,10 @@
-var employeeFactory = function (firstName, lastName, gender, hireDate, dateOfBirth) {
+var employeeFactory = function (firstName, lastName, gender, hireDate, birthDate) {
     return {
         firstName: firstName,
         lastName: lastName,
         gender: gender,
         hireDate: hireDate,
-        dateOfBirth: dateOfBirth
+        birthDate: birthDate
     }
 };
 

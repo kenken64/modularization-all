@@ -1,12 +1,12 @@
 // for singleton objects we can add methods to constructors
 
 
-var Employee = function (firstName, lastName, gender, hireDate, dateOfBirth) {
+var Employee = function (firstName, lastName, gender, hireDate, birthDate) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.gender = gender;
     this.hireDate = hireDate;
-    this.dateOfBirth = dateOfBirth;
+    this.birthDate = birthDate;
     this.save = function () {
         console.log("Not yet implemented. Let's assume it saves the data");
     };

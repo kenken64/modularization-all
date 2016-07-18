@@ -11,12 +11,12 @@ var pool = mysql.createPool({
 
 const INSERTSQL = "insert into employees (first_name, last_name, gender, birth_date, hire_date) values (?,?,?,?,?)";
 
-var Employee = function (firstName, lastName, gender, hireDate, dateOfBirth) {
+var Employee = function (firstName, lastName, gender, hireDate, birthDate) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.gender = gender;
     this.hireDate = hireDate;
-    this.dateOfBirth = dateOfBirth;
+    this.birthDate = birthDate;
 };
 
 Employee.prototype.save = function (callback) {
@@ -27,7 +27,7 @@ Employee.prototype.save = function (callback) {
             callback(err);
         }
 
-        var values = [employee.firstName, employee.lastName, employee.gender, employee.hireDate, employee.dateOfBirth];
+        var values = [employee.firstName, employee.lastName, employee.gender, employee.hireDate, employee.birthDate];
 
         connection.query(INSERTSQL, values, function (err, result) {
 
