@@ -2,9 +2,9 @@
     angular.module("RegApp")
         .service("dbService", dbService);
 
-    dbService.$inject = ["$http"];
+    dbService.$inject = ["$http", "$q"];
 
-    function dbService($http) {
+    function dbService($http, $q) {
         // service is a variable named here it can be anything vm/ctrl/self etc..
         var service = this;
 
@@ -19,11 +19,15 @@
         };
 
         service.save = function (employee, callback) {
+            var defer = $q.defer();
+
             $http.post("/api/employee/save", employee).then(function (result) {
-                callback(null, result);
+                defer.resolve(result);
             }).catch(function (err) {
-                callback(err);
+                defer.reject(err);
             });
+
+            return defer.promise;
         };
     }
 })();

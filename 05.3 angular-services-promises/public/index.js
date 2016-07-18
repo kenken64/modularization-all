@@ -17,18 +17,17 @@
         };
 
         vm.register = function () {
-            dbService.save(vm.employee, function (err, result) {
-                if (err) {
+            dbService.save(vm.employee)
+                .then(function (result) {
+                    vm.status.message = "Inserted successfully";
+                    vm.status.code = 202;
+                    console.log(result);
+                })
+                .catch(function () {
+                    console.log(err);
                     vm.status.message = "An error occurred.";
                     vm.status.code = 400;
-                    return console.log(err);
-                }
-                console.log(err);
-                vm.status.message = "Inserted successfully";
-                vm.status.code = 202;
-
-                console.log(result);
-            });
+                })
         }
     }
 })();
