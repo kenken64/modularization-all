@@ -17,13 +17,13 @@
         };
 
         vm.register = function () {
-            dbService(vm.employee).save(function (err, result) {
+            dbService.save(vm.employee, function (err, result) {
                 if (err) {
                     vm.status.message = "An error occurred.";
                     vm.status.code = 400;
                     return console.log(err);
                 }
-
+                console.log(err);
                 vm.status.message = "Inserted successfully";
                 vm.status.code = 202;
 
