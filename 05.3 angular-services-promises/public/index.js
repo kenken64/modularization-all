@@ -23,7 +23,7 @@
                     vm.status.code = 202;
                     console.log(result);
                 })
-                .catch(function () {
+                .catch(function (err) {
                     console.log(err);
                     vm.status.message = "An error occurred.";
                     vm.status.code = 400;
