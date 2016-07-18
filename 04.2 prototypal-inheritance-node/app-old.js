@@ -46,6 +46,7 @@ app.post("/api/employee/save", function (req, res) {
 });
 
 app.use(express.static(__dirname + "/public"));
+app.get("/bower_components", express.static(__dirname + "/bower_components"));
 
 app.listen(3000, function () {
     console.info("App Server started on port 3000");
