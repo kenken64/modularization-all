@@ -9,8 +9,8 @@ module.exports = function (app) {
         var hireDate = req.body.hiredate.substring(0, req.body.hiredate.indexOf('T'));
 
         var employee = new Employee(
-            req.body.firstName,
-            req.body.lastName,
+            req.body.firstname,
+            req.body.lastname,
             gender,
             hireDate,
             birthDate
@@ -20,7 +20,7 @@ module.exports = function (app) {
             if (err) {
                 res.status(500).end();
                 // Don't forget to add a return statement here.
-                return console.log("Some Error occured");
+                return console.log("Some Error occured", err);
             }
             console.log("Saved Employee Successfully");
             res.status(202).json({url: "/api/employee/" + result.insertId});

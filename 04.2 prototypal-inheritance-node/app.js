@@ -31,7 +31,7 @@ Employee.prototype.save = function (callback) {
     pool.getConnection(function (err, connection) {
 
         if (err) {
-            callback(err);
+            return callback(err);
         }
 
         var values = [employee.firstName, employee.lastName, employee.gender, employee.hireDate, employee.birthDate];
@@ -41,7 +41,7 @@ Employee.prototype.save = function (callback) {
             connection.release();
 
             if (err) {
-                callback(err);
+                return callback(err);
             }
 
             callback(null, result);
@@ -57,8 +57,8 @@ app.post("/api/employee/save", function (req, res) {
     var hireDate = req.body.hiredate.substring(0, req.body.hiredate.indexOf('T'));
 
     var employee = new Employee(
-        req.body.firstName,
-        req.body.lastName,
+        req.body.firstname,
+        req.body.lastname,
         gender,
         hireDate,
         birthDate
@@ -68,7 +68,7 @@ app.post("/api/employee/save", function (req, res) {
         if (err) {
             res.status(500).end();
             // Don't forget to add a return statement here.
-            return console.log("Some Error occured");
+            return console.log("Some Error occured", err);
         }
         console.log("Saved Employee Successfully");
         res.status(202).json({url: "/api/employee/" + result.insertId});

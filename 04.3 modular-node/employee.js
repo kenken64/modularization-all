@@ -24,7 +24,7 @@ Employee.prototype.save = function (callback) {
     pool.getConnection(function (err, connection) {
 
         if (err) {
-            callback(err);
+            return callback(err);
         }
 
         var values = [employee.firstName, employee.lastName, employee.gender, employee.hireDate, employee.birthDate];
@@ -34,7 +34,7 @@ Employee.prototype.save = function (callback) {
             connection.release();
 
             if (err) {
-                callback(err);
+                return callback(err);
             }
 
             callback(null, result);
