@@ -3,9 +3,11 @@
         .module("RegApp", [])
         .controller("RegCtrl", RegCtrl);
 
-    RegCtrl.$inject = ["$http"];
 
-    function RegCtrl($http) {
+    //Try removing DB service from this line? Does the console.log from service still gets printed??
+    RegCtrl.$inject = ["$http", "dbService"];
+
+    function RegCtrl($http, dbService) {
         vm = this;
         vm.employee = {};
         vm.employee.firstname = "";
