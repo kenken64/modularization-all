@@ -7,8 +7,17 @@
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
 
 </head>
-<body ng-controller="RegCtrl as ctrl">
-<div style="padding: 30px">
+<body >
+<div  ng-controller="ListCtrl as ctrl">
+    <ul>
+        <li ng-repeat="employee in ctrl.employees">
+            {{employee.firstname}}
+            {{employee.lastname}}
+        </li>
+    </ul>
+</div>
+<div style="padding: 30px" ng-controller="RegCtrl as ctrl">
+    <h1>Form</h1>
     <form name="regForm" novalidate ng-submit="ctrl.register()" autocomplete="off">
         <div class="form-group">
             <label for="firstname">First Name:</label>

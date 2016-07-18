@@ -8,6 +8,8 @@
         // service is a variable named here it can be anything vm/ctrl/self etc..
         var service = this;
 
+        service.employees = [];
+
         service.getEmployee = function () {
             var employee = {};
             employee.firstname = "";
@@ -22,6 +24,8 @@
             var defer = $q.defer();
 
             $http.post("/api/employee/save", employee).then(function (result) {
+                service.employees.push(employee);
+                console.log(service.employees);
                 defer.resolve(result);
             }).catch(function (err) {
                 defer.reject(err);

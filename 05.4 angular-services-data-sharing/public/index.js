@@ -21,6 +21,7 @@
                 .then(function (result) {
                     vm.status.message = "Inserted successfully";
                     vm.status.code = 202;
+                    vm.employee = dbService.getEmployee();
                     console.log(result);
                 })
                 .catch(function (err) {
@@ -30,4 +31,17 @@
                 })
         }
     }
+
+
+    angular
+        .module("RegApp")
+        .controller("ListCtrl", ListCtrl);
+
+    ListCtrl.$inject = ["dbService"];
+
+    function ListCtrl(dbService) {
+        var self = this;
+
+        self.employees = dbService.employees;
+    };
 })();
