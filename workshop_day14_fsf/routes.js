@@ -1,0 +1,26 @@
+var Employee = require("./employee")
+
+exports.saveEmployee = function (req, res) {
+
+    var gender = req.body.gender == 'male' ? 'M' : 'F'; //if enum fields
+    var birthDate = req.body.birthday.substring(0, req.body.birthday.indexOf('T'));
+    var hireDate = req.body.hiredate.substring(0, req.body.hiredate.indexOf('T'));
+
+    var employee = new Employee(
+        req.body.firstname,
+        req.body.lastname,
+        gender,
+        hireDate,
+        birthDate
+    );
+
+    employee.save(function (err, result) {
+        if (err) {
+            res.status(500).end();
+            // Don't forget to add a return statement here.
+            return console.log("Some Error occured", err);
+        }
+        console.log("Saved Employee Successfully");
+        res.status(202).json({url: "/api/employee/" + result.insertId});
+    });
+}
